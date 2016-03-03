@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>JavaTokenValidator</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>GetBalance</servlet-name>
+    <servlet-class>com.sample.GetBalance</servlet-class>
+  </servlet>
+  <filter>
+    <filter-name>accessRestricted</filter-name>
+    <filter-class>com.sample.JTVFilter</filter-class>
+    <init-param>
+      <param-name>scope</param-name>
+      <param-value>accessRestricted</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>accessRestricted</filter-name>
+    <url-pattern>/GetBalance</url-pattern>
+  </filter-mapping>
+</web-app>
