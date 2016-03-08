@@ -36,7 +36,7 @@ import com.ibm.mfp.java.token.validator.TokenValidationResult;
 public class JTVFilter implements Filter {
 
 	public static final String AUTH_HEADER = "Authorization";
-	private static final String AUTHSERVER_URI = "http://localhost:9080/mfp/api"; //Set here your authentication server URI
+	private static final String AUTHSERVER_URI = "http://localhost:9080/mfp/api"; //Set here your authorization server URI
 	private static final String CLIENT_ID = "jtv"; //Set here your confidential client ID
 	private static final String CLIENT_SECRET = "jtv"; //Set here your confidential client SECRET
 
@@ -56,7 +56,7 @@ public class JTVFilter implements Filter {
 	}
 
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain filter) throws IOException, ServletException {
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain) throws IOException, ServletException {
 		String expectedScope = filterConfig.getInitParameter("scope");
 		HttpServletRequest httpServletRequest = (HttpServletRequest) req;
 		HttpServletResponse httpServletResponse = (HttpServletResponse) res;
@@ -73,7 +73,7 @@ public class JTVFilter implements Filter {
 			} else if (tokenValidationRes.getIntrospectionData() != null) {
 				// Success
 				httpServletRequest.setAttribute("introspection-data", tokenValidationRes.getIntrospectionData());
-				filter.doFilter(req, res);
+				filterChain.doFilter(req, res);
 			}
 		} catch (TokenValidationException e) {
 			httpServletResponse.setStatus(500);
