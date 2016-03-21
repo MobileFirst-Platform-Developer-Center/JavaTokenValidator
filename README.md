@@ -8,8 +8,12 @@ https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authenticat
 
 ### Usage
 
-ou can deploy the project on supported application servers (Tomcat, WebSphere Full profile and WebSphere Liberty profile).  
-[Download the simple Java servlet](https://github.com/MobileFirst-Platform-Developer-Center/JavaTokenValidator/tree/release80).
+You can deploy the project on supported application servers (Tomcat, WebSphere Full profile and WebSphere Liberty profile).  
+
+This sample can be used in coordination with client samples applications described here:
+
+- [UserLogin](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/user-authentication/)
+- [PinCodeAttempts](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/credentials-validation/)
 
 ### Sample usage
 
@@ -28,7 +32,7 @@ Copyright 2016 IBM Corp.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-att
+
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
